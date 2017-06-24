@@ -34,8 +34,9 @@
             android:name=".LoadingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_loading"
-            android:theme="@style/FullscreenTheme"></activity>
-        <activity android:name=".LoginActivity"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".test.CalenderActivity"></activity>
     </application>
 
 </manifest>
