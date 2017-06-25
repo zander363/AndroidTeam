@@ -19,11 +19,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.view.animation.Animation;
 import android.widget.TextView;
+import android.os.Bundle;
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ListView mListView;
     private String[] list = {"可...可惡"};
+    private String name;
 
     FloatingActionButton fab_plus, fab_plus1, fab_plus2;
     Animation fab_open, fab_close, fab_Rcw, fab_Rccw;
@@ -33,6 +35,14 @@ public class UserActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+        TextView name_address =(TextView)findViewById(R.id.name_address);
+        if(this.getIntent().getExtras() != null)
+        {
+            Bundle bundle = this.getIntent().getExtras();
+            name = bundle.getString("name");
+            name_address.setText(name);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
