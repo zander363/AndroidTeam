@@ -24,7 +24,6 @@ public class JoinTeamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //初始化Intent物件
                 Intent intent = new Intent();
-                //從MainActivity 到Main2Activity
                 intent.setClass(JoinTeamActivity.this, TeamActivity.class);
                 //開啟Activity
                 startActivity(intent);
