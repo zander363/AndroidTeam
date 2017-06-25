@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -19,8 +20,8 @@ import android.content.Intent;
 public class NameFragment extends Fragment {
 
 
+    private EditText editText;
     public NameFragment() {
-        // Required empty public constructor
     }
 
 
@@ -30,16 +31,17 @@ public class NameFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_name, container, false);
         Button button = (Button) v.findViewById(R.id.button3);
-        final TextView textView = (TextView)v.findViewById(R.id.textView3);
+         editText = (EditText)v.findViewById(R.id.editText3);
        button.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
-                if("".equals(textView.getText().toString()))
-                    Toast.makeText(NameFragment.this.getActivity(),"未輸入新姓名",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.putExtra("name",textView.getText().toString());
-                intent.setClass(getActivity(),UserActivity.class);
-                getActivity().startActivity(intent);
-
+                if("".equals(editText.getText().toString()))
+                    Toast.makeText(NameFragment.this.getActivity(),"未輸入新名字",Toast.LENGTH_SHORT).show();
+                else {
+                    Intent intent = new Intent();
+                    intent.putExtra("name", editText.getText().toString());
+                    intent.setClass(getActivity(), UserActivity.class);
+                    getActivity().startActivity(intent);
+                }
 
            }
            });

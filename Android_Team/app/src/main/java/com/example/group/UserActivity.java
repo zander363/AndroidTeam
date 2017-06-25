@@ -29,26 +29,27 @@ public class UserActivity extends AppCompatActivity
 
     FloatingActionButton fab_plus, fab_plus1, fab_plus2;
     Animation fab_open, fab_close, fab_Rcw, fab_Rccw;
-    TextView textView1, textView2;
+    TextView textView1, textView2 , name_address;
     boolean isopen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-        TextView name_address =(TextView)findViewById(R.id.name_address);
-        if(this.getIntent().getExtras() != null)
-        {
-            Bundle bundle = this.getIntent().getExtras();
-            name = bundle.getString("name");
-            name_address.setText(name);
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mListView = (ListView) findViewById(R.id.team_list);
         mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
+
+
+
+        name_address =(TextView)findViewById(R.id.name_address);
+        if(this.getIntent().getExtras() != null)
+        {
+            Bundle bundle = this.getIntent().getExtras();
+            name_address.setText(bundle.getString("name"));
+        }
+
 
         fab_close = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
         fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
@@ -146,6 +147,9 @@ public class UserActivity extends AppCompatActivity
             manager.beginTransaction().replace(R.id.layout_for_fragment, manageFragment, manageFragment.getTag()).commit();
             Toast.makeText(this, "管理", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_logout) {
+            Intent intent=new Intent();
+            intent.setClass(UserActivity.this,LoginActivity.class);
+            startActivity(intent);
             Toast.makeText(this, "登出", Toast.LENGTH_SHORT).show();
         }
 
@@ -157,8 +161,6 @@ public class UserActivity extends AppCompatActivity
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
-
-
                 Intent intent = new Intent();
                 intent.setClass(UserActivity.this, UserActivity.class);
                 startActivity(intent);

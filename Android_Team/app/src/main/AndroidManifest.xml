@@ -34,7 +34,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateActivity" />
-        <activity android:name=".RegisActivity"></activity>
+        <activity android:name=".RegisActivity" />
+        <activity android:name=".GroupActivity"></activity>
     </application>
 
 </manifest>

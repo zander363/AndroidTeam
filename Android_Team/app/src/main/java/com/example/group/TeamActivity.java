@@ -26,16 +26,20 @@ public class TeamActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        Intent intent =new Intent();
+
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+
                 case R.id.navigation_calendar:
-                    Intent intent =new Intent();
                     intent.setClass(TeamActivity.this,CalendarActivity.class);
                     startActivity(intent);
                     Toast.makeText(TeamActivity.this,"Action calendar Clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_group:
+                    intent.setClass(TeamActivity.this,GroupActivity.class);
+                    startActivity(intent);
                     Toast.makeText(TeamActivity.this,"Action group Clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_setting:

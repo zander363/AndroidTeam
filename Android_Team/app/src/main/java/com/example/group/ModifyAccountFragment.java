@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -18,7 +19,10 @@ import android.widget.Toast;
  */
 public class ModifyAccountFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+    private EditText editText2;
+    private EditText editText4;
+    private EditText editText5;
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -41,7 +45,6 @@ public class ModifyAccountFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment ModifyAccountFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static ModifyAccountFragment newInstance(String param1, String param2) {
         ModifyAccountFragment fragment = new ModifyAccountFragment();
         Bundle args = new Bundle();
@@ -67,14 +70,24 @@ public class ModifyAccountFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_modify_account, container, false);
         Button button = (Button) v.findViewById(R.id.button4);
+         editText2 = (EditText)v.findViewById(R.id.editText2);
+         editText5 = (EditText)v.findViewById(R.id.editText5);
+
+         editText4 = (EditText)v.findViewById(R.id.editText4);
 
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
-                Toast.makeText(ModifyAccountFragment.this.getActivity(),"密碼修改成功", Toast.LENGTH_SHORT).show();
+
 
                 Intent intent = new Intent();
-                intent.setClass(getActivity(),UserActivity.class);
-                getActivity().startActivity(intent);
+                if(!editText4.getText().toString().equals(editText5.getText().toString()))
+                    Toast.makeText(ModifyAccountFragment.this.getActivity(), "兩次輸入密碼不相同", Toast.LENGTH_SHORT).show();
+                else {
+                    intent.setClass(getActivity(), UserActivity.class);
+                    Toast.makeText(ModifyAccountFragment.this.getActivity(), "密碼修改成功", Toast.LENGTH_SHORT).show();
+                    getActivity().startActivity(intent);
+                }
+
 
 
             }
