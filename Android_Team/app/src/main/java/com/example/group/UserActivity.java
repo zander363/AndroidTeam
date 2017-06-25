@@ -1,5 +1,6 @@
 package com.example.group;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
+import android.view.animation.Animation;
+import android.widget.TextView;
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    FloatingActionButton fab_plus,fab_plus1,fab_plus2;
+    Animation fab_open,fab_close,fab_Rcw,fab_Rccw;
+    TextView textView1,textView2;
+    boolean isopen = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +34,58 @@ public class UserActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
+        fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        fab_open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
+        fab_Rcw = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
+        fab_Rccw = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_counterclockwise);
+
+        textView1 = (TextView) findViewById(R.id.textView11);
+        textView2 = (TextView) findViewById(R.id.textView13);
+        fab_plus2 = (FloatingActionButton) findViewById(R.id.fab_plus2);
+        fab_plus1 = (FloatingActionButton) findViewById(R.id.fab_plus1);
+        fab_plus = (FloatingActionButton) findViewById(R.id.fab_plus);
+        fab_plus.setOnClickListener(new View.OnClickListener() {
+
+
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                if(isopen){
+                    textView1.startAnimation(fab_close);
+                    textView2.startAnimation(fab_close);
+                    fab_plus1.startAnimation(fab_close);
+                    fab_plus2.startAnimation(fab_close);
+                    fab_plus.startAnimation(fab_Rccw);
+                    fab_plus1.setClickable(false);
+                    fab_plus2.setClickable(false);
+                    isopen = false;
+                }
+                else{
+                    textView1.startAnimation(fab_open);
+                    textView2.startAnimation(fab_open);
+                    fab_plus1.startAnimation(fab_open);
+                    fab_plus2.startAnimation(fab_open);
+                    fab_plus.startAnimation(fab_Rcw);
+                    fab_plus1.setClickable(true);
+                    fab_plus2.setClickable(true);
+                    isopen = true;
+                }
             }
+        });
+        fab_plus1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(UserActivity.this, JoinTeamActivity.class);
+                startActivity(intent);
+            }
+
+            });
+        fab_plus2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(UserActivity.this, CreateTeamActivity.class);
+                startActivity(intent);
+            }
+
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -54,27 +108,7 @@ public class UserActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.user, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

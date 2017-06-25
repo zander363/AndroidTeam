@@ -16,9 +16,9 @@ public class TeamActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private String[] arr=new String[3];
-    arr[0]="87";
-    arr[1]="88";
-    arr[2]="72";
+//    arr[0]="87";
+//    arr[1]="88";
+//    arr[2]="72";
 
     private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -54,9 +54,9 @@ public class TeamActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayAdapter<String> mAdapter = new RecyclerView.Adapter<>(TeamActivity.this,
-                android.R.layout.simple_list_item_1,arr);
-        mRecyclerView.setAdapter(mAdapter);
+ //       ArrayAdapter<String> mAdapter = new RecyclerView.Adapter<>(TeamActivity.this,
+  //              android.R.layout.simple_list_item_1,arr);
+ //       mRecyclerView.setAdapter(mAdapter);
     }
 
 }

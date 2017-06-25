@@ -1,11 +1,14 @@
 package com.example.group;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 
 
 /**
@@ -53,6 +56,18 @@ public class ModifyAccountFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+ //       Button button = (Button)findViewById(R.id.button);
+
+   //     button.setOnClickListener(new View.OnClickListener() {
+
+//            public void onClick(View v) {
+ //               //初始化Intent物件
+  //              Intent intent = new Intent();
+   //             intent.
+//
+ //               startActivity(intent);
+  //          }
+   //     });
     }
 
     @Override
