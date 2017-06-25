@@ -45,10 +45,14 @@ public class UserActivity extends AppCompatActivity
 
         name_address =(TextView)findViewById(R.id.name_address);
         if(this.getIntent().getExtras() != null)
-        {
+        {try{
             Bundle bundle = this.getIntent().getExtras();
             name_address.setText(bundle.getString("name"));
+        }catch (Exception e){
+            Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
+    }
 
 
         fab_close = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);

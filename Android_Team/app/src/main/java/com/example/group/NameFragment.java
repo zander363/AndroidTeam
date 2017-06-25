@@ -37,10 +37,14 @@ public class NameFragment extends Fragment {
                 if("".equals(editText.getText().toString()))
                     Toast.makeText(NameFragment.this.getActivity(),"未輸入新名字",Toast.LENGTH_SHORT).show();
                 else {
-                    Intent intent = new Intent();
-                    intent.putExtra("name", editText.getText().toString());
-                    intent.setClass(getActivity(), UserActivity.class);
-                    getActivity().startActivity(intent);
+                    try {
+                        Intent intent = new Intent();
+                        intent.putExtra("name", editText.getText().toString());
+                        intent.setClass(getActivity(), UserActivity.class);
+                        getActivity().startActivity(intent);
+                    }catch (Exception e){
+                        Toast.makeText(NameFragment.this.getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
            }
