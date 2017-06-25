@@ -36,8 +36,8 @@ public class NameFragment extends Fragment {
 
            }
            });
-
 */
+
 
         return inflater.inflate(R.layout.fragment_name, container, false);
     }
