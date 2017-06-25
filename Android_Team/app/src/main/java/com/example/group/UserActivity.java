@@ -15,13 +15,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private ListView mListView;
+    private String[] list={"可...可惡"};
 
     FloatingActionButton fab_plus,fab_plus1,fab_plus2;
     Animation fab_open,fab_close,fab_Rcw,fab_Rccw;
@@ -29,10 +32,13 @@ public class UserActivity extends AppCompatActivity
     boolean isopen = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mListView = (ListView)findViewById(R.id.team_list);
+        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
 
         fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         fab_open = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
