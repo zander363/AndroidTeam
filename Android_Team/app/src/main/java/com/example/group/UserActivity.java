@@ -129,7 +129,7 @@ public class UserActivity extends AppCompatActivity
             ModifyAccountFragment modifyAccountFragment = new ModifyAccountFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragment, modifyAccountFragment, modifyAccountFragment.getTag()).commit();
-            Toast.makeText(this, "修改帳密", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "修改密碼", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
             ManageFragment manageFragment = new ManageFragment();
             FragmentManager manager = getSupportFragmentManager();

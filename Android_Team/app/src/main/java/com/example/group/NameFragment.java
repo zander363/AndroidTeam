@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import android.content.Intent;
 
 
 /**
@@ -25,21 +26,25 @@ public class NameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-/*
+
         View v = inflater.inflate(R.layout.fragment_name, container, false);
         Button button = (Button) v.findViewById(R.id.button3);
 
        button.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
+                Toast.makeText(NameFragment.this.getActivity(),"", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(NameFragment.this.getActivity(),"cc", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getActivity(),UserActivity.class);
+                getActivity().startActivity(intent);
+
 
            }
            });
-*/
 
 
-        return inflater.inflate(R.layout.fragment_name, container, false);
+
+        return v;
     }
 
 }
