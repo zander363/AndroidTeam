@@ -22,7 +22,7 @@ public class LoadingActivity extends AppCompatActivity {
             public void run() {
                 while(progressStatus<100) {
                     progressStatus++;
-                    android.os.SystemClock.sleep(50);
+                    android.os.SystemClock.sleep(20);
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
