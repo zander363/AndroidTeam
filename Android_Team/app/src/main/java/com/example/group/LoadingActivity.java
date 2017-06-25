@@ -30,14 +30,15 @@ public class LoadingActivity extends AppCompatActivity {
                         }
                     });
                 }
+
+                if(progressStatus == 100){
+                    Intent intent = new Intent();
+                    intent.setClass(LoadingActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+
             }
         }).start();
-        if(progressStatus == 100){
-            Intent intent = new Intent();
-            intent.setClass(LoadingActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
-
 
     }
 }

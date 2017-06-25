@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.*;
 import android.support.v7.widget.*;
+import android.content.Intent;
+
 
 
 
@@ -28,6 +30,9 @@ public class TeamActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_calendar:
+                    Intent intent =new Intent();
+                    intent.setClass(TeamActivity.this,CalendarActivity.class);
+                    startActivity(intent);
                     Toast.makeText(TeamActivity.this,"Action calendar Clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_group:

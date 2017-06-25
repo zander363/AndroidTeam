@@ -6,24 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PostActivity extends AppCompatActivity {
+public class RegisActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
-        Button button = (Button)findViewById(R.id.button8);
-
-        //實做OnClickListener界面
+        setContentView(R.layout.activity_regis);
+        Button button =(Button) findViewById(R.id.button6);
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(PostActivity.this, TeamActivity.class);
+                intent.setClass(RegisActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
     }
-
-
 }
