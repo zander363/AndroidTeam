@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,10 +44,11 @@ public class LoginActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
-            new AlertDialog.Builder(LoginActivity.this)
-                    .setTitle("確認視窗")
-                    .setMessage("確定要結束應用程式嗎?")
-                    .setPositiveButton("確定",
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+
+                    builder.setTitle("確認視窗");
+                    builder.setMessage("確定要結束應用程式嗎?");
+                    builder.setPositiveButton("確定",
                             new DialogInterface.OnClickListener() {
 
                                 @Override
@@ -58,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 }
-                            })
-                    .setNegativeButton("取消",
+                            });
+                    builder.setNegativeButton("取消",
                             new DialogInterface.OnClickListener() {
 
                                 @Override
