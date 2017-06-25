@@ -19,23 +19,22 @@
         <activity android:name=".PostActivity" />
         <activity
             android:name=".TeamActivity"
-            android:label="@string/title_activity_team"></activity>
+            android:label="@string/title_activity_team" />
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".LoadingActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_loading"
-            android:theme="@style/FullscreenTheme" />
-        <activity android:name=".LoginActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>>
-        <activity android:name=".CalendarActivity">
+        <activity android:name=".LoginActivity">
+
+        </activity>
+        >
+        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".LoadingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
