@@ -33,9 +33,14 @@ public class ModifyAccountFragment extends Fragment {
     private String mParam2;
 
 
+
     public ModifyAccountFragment() {
         // Required empty public constructor
     }
+    /** Fragment当前状态是否可见 */
+
+
+
 
     /**
      * Use this factory method to create a new instance of

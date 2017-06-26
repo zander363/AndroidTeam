@@ -25,7 +25,9 @@ public class NameFragment extends Fragment {
     }
 
 
-    @Override
+
+
+        @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
