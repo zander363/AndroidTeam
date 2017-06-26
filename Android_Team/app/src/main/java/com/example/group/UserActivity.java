@@ -30,6 +30,11 @@ public class UserActivity extends AppCompatActivity
     FloatingActionButton fab_plus, fab_plus1, fab_plus2;
     Animation fab_open, fab_close, fab_Rcw, fab_Rccw;
     TextView textView1, textView2 , name_address;
+    private ListView listView;
+    private String[] list = new String[7];
+    int a = 0;
+    private ArrayAdapter<String> listAdapter;
+
     boolean isopen = false;
 
     @Override
@@ -43,10 +48,23 @@ public class UserActivity extends AppCompatActivity
 
 
 
-        name_address =(TextView)findViewById(R.id.name_address);
+        if(this.getIntent().getExtras() !=null) {
+
+            listView = (ListView) findViewById(R.id.list_view);
+            listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+            listView.setAdapter(listAdapter);
+        }
+
+
+
+
+
         if(this.getIntent().getExtras() != null)
         {try{
             Bundle bundle = this.getIntent().getExtras();
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            View headerView = navigationView.getHeaderView(0);
+            name_address= (TextView) headerView.findViewById(R.id.name_address);
             name_address.setText(bundle.getString("name"));
         }catch (Exception e){
             Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
