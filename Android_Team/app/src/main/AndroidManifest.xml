@@ -35,12 +35,16 @@
         </activity>
         <activity android:name=".CreateActivity" />
         <activity android:name=".RegisActivity" />
+<<<<<<< HEAD
         <activity android:name=".GroupActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".addFriend" />
         <activity android:name=".deleteGroup"></activity>
+=======
+        <activity android:name=".GroupActivity"></activity>
+>>>>>>> origin/master
     </application>
 
 </manifest>

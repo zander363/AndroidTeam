@@ -45,7 +45,11 @@ public class OOPComment {
 		cv.put(ORDER_COLUMN,comment.order);
 		cv.put(NAME_COLUMN,comment.name);
 		cv.put(CONT_COLUMN,comment.context);
+<<<<<<< HEAD
 		cv.put(ID_COLUMN,comment.id);
+=======
+		cv.put(ID_COLUMN,comment.group_id);
+>>>>>>> origin/master
 		db.insert(TABLE_NAME,null,cv);
 
 
