@@ -24,7 +24,7 @@ import android.os.Bundle;
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ListView mListView;
-    private String[] list = {"可...可惡"};
+    private String[] llist = {"可...可惡"};
     private String name;
 
     FloatingActionButton fab_plus, fab_plus1, fab_plus2;

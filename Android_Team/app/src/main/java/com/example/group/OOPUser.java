@@ -22,7 +22,7 @@ public class OOPUser {
 	public static final String NAME_COLUMN= "name";
 	public static final String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME
 			+" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+ACCOUNT_COLUMN+" TEXT NOT NULL, "
-			+PW_COLUMN+" TEXT NOT NULL, "+NAME_COLUMN+" TEXT NOT NULL, )";
+			+PW_COLUMN+" TEXT NOT NULL, "+NAME_COLUMN+" TEXT NOT NULL)";
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();

@@ -8,26 +8,50 @@ import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
+import android.widget.EditText;
+import android.widget.Toast;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 
 
 public class LoginActivity extends AppCompatActivity {
+    private UserDBHelper helper;
+    OOPUser oopuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        final EditText email=(EditText) findViewById(R.id.email);
+        final EditText password=(EditText)findViewById(R.id.password);
         Button button = (Button)findViewById(R.id.button);
         Button button7 = (Button)findViewById(R.id.button7);
+
+        try{
+            helper = new UserDBHelper(this, "oop.movie", null, 1);
+
+        oopuser = new OOPUser(this);
+        /*if (oopuser.getCount() == 0) {
+            oopuser.loadSample();
+        }*/
+        }
+        catch (Exception e){
+            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
         //實做OnClickListener界面
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, UserActivity.class);
-                startActivity(intent);
+                User user=oopuser.get(email.getText().toString(),password.getText().toString());
+                if(user!=null) {
+                    Intent intent = new Intent();
+                    intent.setClass(LoginActivity.this, UserActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "try again!", Toast.LENGTH_LONG).show();
+                }
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
