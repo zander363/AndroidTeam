@@ -98,6 +98,8 @@
 
     </LinearLayout>
 
-    <include layout="@layout/content_user" />
+    <include
+        android:id="@+id/content_user"
+        layout="@layout/content_user" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -20,6 +20,7 @@ public class PostActivity extends AppCompatActivity {
 
 
 
+
         //實做OnClickListener界面
         button.setOnClickListener(new View.OnClickListener() {
 

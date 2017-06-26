@@ -18,6 +18,7 @@ public class GroupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(GroupActivity.this,PostActivity.class);
+                startActivity(intent);
             }
         });
     }

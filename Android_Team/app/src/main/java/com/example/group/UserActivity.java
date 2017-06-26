@@ -22,6 +22,16 @@ import android.widget.Toast;
 import android.view.animation.Animation;
 import android.widget.TextView;
 import android.os.Bundle;
+import android.widget.AdapterView;
+import android.content.Context;
+import android.widget.ListAdapter;
+import android.widget.AdapterView.OnItemSelectedListener;
+
+
+
+
+
+
 
 public class UserActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,11 +45,13 @@ public class UserActivity extends AppCompatActivity
     private ListView listView;
     private String[] list_for_listview = new String[7];
     int a = 0;
-    private ArrayAdapter<String> listAdapter;
     boolean isopen = false;
     NameFragment nameFragment;
     ModifyAccountFragment modifyAccountFragment;
     ManageFragment manageFragment;
+    private ArrayAdapter<String>  adapter;
+    View subLayout1,subLayout2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +59,13 @@ public class UserActivity extends AppCompatActivity
         setContentView(R.layout.activity_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mListView = (ListView) findViewById(R.id.team_list);
-        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
 
 
 
-        if(this.getIntent().getExtras() !=null) {
 
-            listView = (ListView) findViewById(R.id.list_view);
-            listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
-            listView.setAdapter(listAdapter);
-        }
+
+
+
 
 
 
@@ -65,11 +73,27 @@ public class UserActivity extends AppCompatActivity
 
         if(this.getIntent().getExtras() != null)
         {try{
+//            listView = (ListView) findViewById(R.id.list_view);
+//            listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+//            listView.setAdapter(listAdapter);
+
             Bundle bundle = this.getIntent().getExtras();
+        if(bundle.getString("team_name") != null) {
+            list_for_listview[a] = bundle.getString("team_name");
+        }
+
+            subLayout1 = findViewById(R.id.app_bar_user);
+            subLayout2 = subLayout1.findViewById(R.id.content_user);
+            listView = (ListView) subLayout2.findViewById(R.id.list_view);
+            adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1 ,list_for_listview);
+            listView.setAdapter(adapter);
+
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             View headerView = navigationView.getHeaderView(0);
             name_address= (TextView) headerView.findViewById(R.id.name_address);
-            name_address.setText(bundle.getString("name"));
+            if(bundle.getString("name") != null) {
+                name_address.setText(bundle.getString("name"));
+            }
         }catch (Exception e){
             Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -113,23 +137,26 @@ public class UserActivity extends AppCompatActivity
                 }
             }
         });
-        fab_plus1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(UserActivity.this, JoinTeamActivity.class);
-                startActivity(intent);
-            }
+        try {
+            fab_plus1.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    intent.setClass(UserActivity.this, JoinTeamActivity.class);
+                    startActivity(intent);
+                }
 
-        });
-        fab_plus2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(UserActivity.this, CreateActivity.class);
-                startActivity(intent);
-            }
+            });
+            fab_plus2.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent intent = new Intent();
+                    intent.setClass(UserActivity.this, CreateActivity.class);
+                    startActivity(intent);
+                }
 
-        });
-
+            });
+        }catch (Exception e){
+            Toast.makeText(UserActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
