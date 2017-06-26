@@ -48,14 +48,14 @@ public class UserActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mListView = (ListView) findViewById(R.id.team_list);
-        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
+//        mListView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list));
 
 
 
         if(this.getIntent().getExtras() !=null) {
 
             listView = (ListView) findViewById(R.id.list_view);
-            listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+//            listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
             listView.setAdapter(listAdapter);
         }
 
