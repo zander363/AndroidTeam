@@ -37,7 +37,6 @@ public class ModifyAccountFragment extends Fragment {
     public ModifyAccountFragment() {
         // Required empty public constructor
     }
-    /** Fragment当前状态是否可见 */
 
 
 
