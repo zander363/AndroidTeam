@@ -61,13 +61,13 @@
             <android.support.design.widget.BottomNavigationView
                 android:id="@+id/navigation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="bottom"
                 android:background="?android:attr/windowBackground"
-                app:menu="@menu/navigation"
                 app:itemBackground="@color/colorPrimary"
                 app:itemIconTint="@drawable/nav_item_color_state"
-                app:itemTextColor="@drawable/nav_item_color_state" />
+                app:itemTextColor="@drawable/nav_item_color_state"
+                app:menu="@menu/navigation" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
