@@ -1,5 +1,7 @@
 package com.example.group;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,11 +33,13 @@ public class UserActivity extends AppCompatActivity
     Animation fab_open, fab_close, fab_Rcw, fab_Rccw;
     TextView textView1, textView2 , name_address;
     private ListView listView;
-    private String[] list = new String[7];
+    private String[] list_for_listview = new String[7];
     int a = 0;
     private ArrayAdapter<String> listAdapter;
-
     boolean isopen = false;
+    NameFragment nameFragment;
+    ModifyAccountFragment modifyAccountFragment;
+    ManageFragment manageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,17 +158,17 @@ public class UserActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_modify_name) {
-            NameFragment nameFragment = new NameFragment();
+            nameFragment = new NameFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragment, nameFragment, nameFragment.getTag()).commit();
             Toast.makeText(this, "修改名字", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_modify_account) {
-            ModifyAccountFragment modifyAccountFragment = new ModifyAccountFragment();
+            modifyAccountFragment = new ModifyAccountFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragment, modifyAccountFragment, modifyAccountFragment.getTag()).commit();
             Toast.makeText(this, "修改密碼", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
-            ManageFragment manageFragment = new ManageFragment();
+            manageFragment = new ManageFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragment, manageFragment, manageFragment.getTag()).commit();
             Toast.makeText(this, "管理", Toast.LENGTH_SHORT).show();
@@ -183,10 +187,64 @@ public class UserActivity extends AppCompatActivity
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
+            try {
+
+                if(modifyAccountFragment !=null && modifyAccountFragment.getUserVisibleHint()) {
+
+                Intent intent = new Intent();
+                intent.setClass(UserActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+                else if(nameFragment!=null && nameFragment.getUserVisibleHint()) {
+                Intent intent = new Intent();
+                intent.setClass(UserActivity.this, UserActivity.class);
+                startActivity(intent);
+                }
+                else if(manageFragment!=null && manageFragment.getUserVisibleHint()){
                 Intent intent = new Intent();
                 intent.setClass(UserActivity.this, UserActivity.class);
                 startActivity(intent);
 
+            }
+
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(UserActivity.this);
+
+                    builder.setTitle("確認視窗");
+                    builder.setMessage("確定要結束應用程式嗎?");
+                    builder.setPositiveButton("確定",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    Intent intentHome = new Intent(Intent.ACTION_MAIN);
+                                    intentHome.addCategory(Intent.CATEGORY_HOME);
+                                    intentHome.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intentHome);
+
+
+
+                                }
+                            });
+                    builder.setNegativeButton("取消",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+
+                                }
+                            }).show();
+
+
+
+
+                }
+            }
+            catch (Exception e){
+                Toast.makeText(UserActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
 
             }
             return true;
