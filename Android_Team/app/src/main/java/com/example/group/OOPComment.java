@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class OOPComment {
 
 	public static final String TABLE_NAME="comment";
-	
+
 	public static final String KEY_ID= "_id";
 
 	public static final String ORDER_COLUMN= "order";
@@ -45,11 +45,7 @@ public class OOPComment {
 		cv.put(ORDER_COLUMN,comment.order);
 		cv.put(NAME_COLUMN,comment.name);
 		cv.put(CONT_COLUMN,comment.context);
-<<<<<<< HEAD
 		cv.put(ID_COLUMN,comment.id);
-=======
-		cv.put(ID_COLUMN,comment.group_id);
->>>>>>> origin/master
 		db.insert(TABLE_NAME,null,cv);
 
 
