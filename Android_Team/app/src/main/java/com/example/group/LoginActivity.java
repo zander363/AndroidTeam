@@ -1,4 +1,4 @@
-package com.example.group;
+﻿package com.example.group;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -27,21 +27,20 @@ public class LoginActivity extends AppCompatActivity {
         Button button = (Button)findViewById(R.id.button);
         Button button7 = (Button)findViewById(R.id.button7);
 
-        try{
-            helper = new UserDBHelper(this, "oop.movie", null, 1);
+        //try{
+            //helper = new UserDBHelper(this, "oop.movie", null, 1);
 
-        oopuser = new OOPUser(this);
+       // oopuser = new OOPUser(this);
         /*if (oopuser.getCount() == 0) {
             oopuser.loadSample();
         }*/
-        }
-        catch (Exception e){
-            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-        }
+        //}
+        //catch (Exception e){
+        //    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+       // }
 
         //實做OnClickListener界面
-        button.setOnClickListener(new View.OnClickListener() {
-
+        /*button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 User user=oopuser.get(email.getText().toString(),password.getText().toString());
                 if(user!=null) {
@@ -52,6 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(LoginActivity.this, "try again!", Toast.LENGTH_LONG).show();
                 }
+            }
+        });*/
+        button.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this, UserActivity.class);
+                startActivity(intent);
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
