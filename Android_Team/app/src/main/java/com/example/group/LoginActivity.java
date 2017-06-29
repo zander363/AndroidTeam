@@ -1,5 +1,6 @@
-﻿package com.example.group;
+package com.example.group;
 
+import sqlite.*;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+
 
 
 public class LoginActivity extends AppCompatActivity {

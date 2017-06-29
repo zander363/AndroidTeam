@@ -1,15 +1,15 @@
-package com.example.group;
+package sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CommentDBHelper extends SQLiteOpenHelper {
+public class UserDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "oop.movie";
     public static final int VERSION = 1;
     private static SQLiteDatabase database;
 
-    public CommentDBHelper(Context context ,String name,
+    public UserDBHelper(Context context ,String name,
                         SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, null, version);
     }

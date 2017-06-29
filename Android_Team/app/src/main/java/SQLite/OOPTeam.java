@@ -1,4 +1,4 @@
-package com.example.group;
+package sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;

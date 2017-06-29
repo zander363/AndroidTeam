@@ -1,4 +1,4 @@
-package com.example.group;
+package sqlite;
 
 public class Comment{
     public int order;
