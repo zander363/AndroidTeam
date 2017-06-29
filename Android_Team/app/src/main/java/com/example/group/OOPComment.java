@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class OOPComment {
 
 	public static final String TABLE_NAME="comment";
-	
+
 	public static final String KEY_ID= "_id";
 
 	public static final String ORDER_COLUMN= "order";

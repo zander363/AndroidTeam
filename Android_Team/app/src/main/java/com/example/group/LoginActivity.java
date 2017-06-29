@@ -41,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //實做OnClickListener界面
         /*button.setOnClickListener(new View.OnClickListener() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> f61bec90e2610e3f05b61892a5c139ca392c823b
             public void onClick(View v) {
                 User user=oopuser.get(email.getText().toString(),password.getText().toString());
                 if(user!=null) {

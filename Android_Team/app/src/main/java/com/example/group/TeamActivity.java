@@ -43,6 +43,10 @@ public class TeamActivity extends AppCompatActivity {
                     Toast.makeText(TeamActivity.this,"Action group Clicked",Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_setting:
+
+                    intent.setClass(TeamActivity.this,SettingsActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText(TeamActivity.this,"Action setting Clicked",Toast.LENGTH_SHORT).show();
                     return true;
             }
